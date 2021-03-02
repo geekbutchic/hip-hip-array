@@ -17,6 +17,10 @@ const students = [
   'Timothy',
   'Patrick',
   'Steve',
+  'Jimothy',
+  'Pat',
+  'Arnold',
+  'Andy'
 ];
 
 for (let i = 0; i < students.length; i++) {
@@ -27,16 +31,18 @@ for (let i = 0; i < students.length; i++) {
 // Loop through the following array BACKWARDS, console.logging out each value. 64 should be printed first and 100 last.
 const grades = [100, 80, 110, 75, 83, 64];
 
-for (let i = 0; i <= grades.length; i++) {
-  console.log(grades[i]);
+for (let i = grades.length - 1; i >= 0; i--) {
+	console.log(grades[i]);
 }
 
 // Challenge 3
 // Console.log out only the even numbers in the following array.
 const numbers = [5, 2, 13, 17, 4, 102, 3000];
 
-function evenNumbers (numbers) {
-  return numbers.filter(n => n % 2 == 0);
+function evenNumbers (num) {
+  return num.filter(num => num % 2 == 0);
+  // To get odd numbers.
+  // if (num % 2 === 1)
 }
 
 console.log(evenNumbers(numbers))
@@ -45,8 +51,8 @@ console.log(evenNumbers(numbers))
 // Console.log out the even numbers in the following array, INCLUDING the negative ones. There should be four total printings.
 const mixedSignNumbers = [3, 15, 14, -2, -3, -8, -103, 4];
 
-function negativeEvenNumbers (numbers) {
-  return numbers.filter(n => n % 2 == 0);
+function negativeEvenNumbers (num) {
+  return num.filter(n => n % 2 === 0);
 }
 
 console.log(negativeEvenNumbers(mixedSignNumbers))
@@ -65,9 +71,9 @@ console.log(symmetricalCapitals)
 // Add a value (your choice!) to the start of the following array and two values (of your choice) to the end simply by adding them in the following line, and then console.log out each value individually.
 const fibonacciNumbers = [1, 1, 2, 3, 5, 8, 13];
 
-fibonacciNumbers.unshift(100);
-fibonacciNumbers.push(1000);
-fibonacciNumbers.push(100000);
+fibonacciNumbers.unshift(0)
+fibonacciNumbers.push(21)
+fibonacciNumbers.push(34)
 
 console.log(fibonacciNumbers);
 
@@ -91,45 +97,41 @@ for (let i = 0; i < bestFriends.length; i++) {
 
 const xMenTeam5 = []
 
-xMenTeam5.unshift('Magneto');
 xMenTeam5.unshift('Wolverine');
+xMenTeam5.unshift('Professor-X')
+xMenTeam5.unshift('Magneto');
 xMenTeam5.push('Gambit')
 xMenTeam5.push('Cyclops')
-xMenTeam5.unshift('Professor-X')
 
 for (let i = 0; i < xMenTeam5.length; i++) {
   console.log(xMenTeam5[i]);
 }
 
-
 // Challenge 9
 // Loop through the `students` array from Challenge 1, starting at index 3 and ending at index 10 (INCLUSIVE), logging out each value individually.
 
-for (let i = 3; i < students.length; i++) {
+for (let i = 3; i < 11; i++) {
   console.log(students[i]);
 }
 
 // Challenge 10
 // Loop through the `students` array from Challenge 1, making a COPY of the array, starting at index 3 and ending at index 10 (INCLUSIVE). This is very similar to string building; create a new array, loop through the old one, and put values from the original in the new one. Then log out each value of the copy indivudally.
 
-let newArray = students.slice(3);
-
-for (let i = 3; i < students.length; i++) {
-  console.log(students[i]);
+let newArr = "";
+for (let i = 3; i < 11; i++) {
+  newArr += students[i] + " ";
+  console.log(newArr)
 }
-
-console.log(newArray);
-
 
 // Challenge 11
 // Make a COPY of the `students` array *using .slice*, starting at index 3 and ending at index 10 (INCLUSIVE), then log out each value of the copy individually. THEN log out each value of the original array. Notice that the original array didn't get any values taken out of it, because `slice` does NOT modify the original array.
 
 // this array is built off of challenge 10
 
-console.log(newArray);
 
+let newArr2 = students.slice(3,11)
 for (let i = 0; i < students.length; i++) {
-  console.log(students[i]);
+  console.log(newArr2[i]);
 }
 
 // I believe this is what you are looking for build a new array using slice.  Then console.log both new array and original array -->
@@ -139,9 +141,7 @@ for (let i = 0; i < students.length; i++) {
 // Pull the items at indices 4-6 (inclusive) from the following array using .splice (NOT .slice!), then console.log out each item from the ORIGINAL array. Note that .splice DOES change the original array.
 const dinosaurs = ['Velociraptor', 'T-Rex', 'Stegosaurus', 'Triceratops', 'Dimetrodon', 'Allosaur', 'Spinosaurus', 'Gigantosaur']
 
-dinosaurs.splice(4);
-dinosaurs.splice(5);
-dinosaurs.splice(6);
+dinosaurs.splice(4,3)
 
 console.log(dinosaurs)
 
@@ -150,16 +150,12 @@ console.log(dinosaurs)
 // Use .join to change the dinosaur strings from the above array into one string with a '*' string as the "separator". Then console.log out that string.
 
 
-console.log(dinosaurs.join ("*"))
+console.log(dinosaurs.join("*"))
 
 // Challenge 14
 // Use .reverse to reverse the dinosaur array and then log out the original array. .reverse DOES change the original array.
 
-
-dinosaurs.reverse()
-console.log(dinosaurs)
-
-
+console.log(dinosaurs.reverse())
 
 // Challenge 15
 // Use .concat to combine the following two arrays into a NEW array you make (.concat RETURNS an array). Then console.log out each value of that new array individually. Now console.log both the primaries and secondaries arrays, noting that .concat does NOT mutate the original arrays.
@@ -167,8 +163,8 @@ const primaries = ['red', 'yellow', 'blue'];
 const secondaries = ['orange', 'green', 'purple'];
 
 
-const colorCombinator = primaries.concat(secondaries);
-console.log(colorCombinator);
+console.log(primaries.concat(secondaries));
+
 
 console.log(primaries);
 console.log(secondaries);
