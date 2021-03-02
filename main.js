@@ -45,6 +45,7 @@ function evenNumbers (num) {
   // if (num % 2 === 1)
 }
 
+
 console.log(evenNumbers(numbers))
 
 // Challenge 4
@@ -60,20 +61,25 @@ console.log(negativeEvenNumbers(mixedSignNumbers))
 // Challenge 5
 // Remove two values from the beginning and one value from the end of the following array, simply by deleting them in the following line. Then console.log out each value individually.
 const symmetricalCapitals = ['A', 'H', 'I', 'M', 'O', 'T', 'U', 'V', 'W', 'X', 'Y'];
-
+// Pop / Shift Method
 symmetricalCapitals.shift();
 symmetricalCapitals.shift();
 symmetricalCapitals.pop();
+
+// or 
+// symmetricalCapitals.splice(0, 2);
 
 console.log(symmetricalCapitals)
 
 // Challenge 6
 // Add a value (your choice!) to the start of the following array and two values (of your choice) to the end simply by adding them in the following line, and then console.log out each value individually.
 const fibonacciNumbers = [1, 1, 2, 3, 5, 8, 13];
-
+// Unshift Method 
 fibonacciNumbers.unshift(0)
 fibonacciNumbers.push(21)
 fibonacciNumbers.push(34)
+// .push can take in as many arguments into the array
+// or 
 
 console.log(fibonacciNumbers);
 
@@ -90,6 +96,12 @@ console.log(bestFriends[4])
 // not sure if which method you wanted so I left both.
 for (let i = 0; i < bestFriends.length; i++) {
   console.log(bestFriends[i]);
+}
+
+// additional example
+const challenge7Array = [1, 2, 3, 4, 5]
+for (const value of challenge7Array) {
+  console.log(value);
 }
 
 // Challenge 8
@@ -117,25 +129,30 @@ for (let i = 3; i < 11; i++) {
 // Challenge 10
 // Loop through the `students` array from Challenge 1, making a COPY of the array, starting at index 3 and ending at index 10 (INCLUSIVE). This is very similar to string building; create a new array, loop through the old one, and put values from the original in the new one. Then log out each value of the copy indivudally.
 
-let newArr = "";
+
+// Correct Method
+let challenge10Array = [];
 for (let i = 3; i < 11; i++) {
-  newArr += students[i] + " ";
-  console.log(newArr)
+  challenge10Array.push(students[i]);
+}
+
+for(const value of challenge10Array) {
+  console.log(value);
 }
 
 // Challenge 11
 // Make a COPY of the `students` array *using .slice*, starting at index 3 and ending at index 10 (INCLUSIVE), then log out each value of the copy individually. THEN log out each value of the original array. Notice that the original array didn't get any values taken out of it, because `slice` does NOT modify the original array.
 
-// this array is built off of challenge 10
+// This array is built off of challenge 10
+// Correct Method
+const challenge11Array = students.slice(3, 11);
 
-
-let newArr2 = students.slice(3,11)
-for (let i = 0; i < students.length; i++) {
-  console.log(newArr2[i]);
+for (const value of challenge11Array) {
+  console.log(value);
 }
-
-// I believe this is what you are looking for build a new array using slice.  Then console.log both new array and original array -->
-// showing how no changes were made to original array.
+for (const value of students) {
+  console.log(value);
+}
 
 // Challenge 12
 // Pull the items at indices 4-6 (inclusive) from the following array using .splice (NOT .slice!), then console.log out each item from the ORIGINAL array. Note that .splice DOES change the original array.
@@ -144,18 +161,18 @@ const dinosaurs = ['Velociraptor', 'T-Rex', 'Stegosaurus', 'Triceratops', 'Dimet
 dinosaurs.splice(4,3)
 
 console.log(dinosaurs)
-
+// Splice does change the original array
 
 // Challenge 13
 // Use .join to change the dinosaur strings from the above array into one string with a '*' string as the "separator". Then console.log out that string.
 
 
-console.log(dinosaurs.join("*"))
+console.log(dinosaurs.join("*"));
 
 // Challenge 14
 // Use .reverse to reverse the dinosaur array and then log out the original array. .reverse DOES change the original array.
 
-console.log(dinosaurs.reverse())
+console.log(dinosaurs.reverse());
 
 // Challenge 15
 // Use .concat to combine the following two arrays into a NEW array you make (.concat RETURNS an array). Then console.log out each value of that new array individually. Now console.log both the primaries and secondaries arrays, noting that .concat does NOT mutate the original arrays.
@@ -165,7 +182,7 @@ const secondaries = ['orange', 'green', 'purple'];
 
 console.log(primaries.concat(secondaries));
 
-
+// Console.log to notice that the string is not mutated
 console.log(primaries);
 console.log(secondaries);
 
